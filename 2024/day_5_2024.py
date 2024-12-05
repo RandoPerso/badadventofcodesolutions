@@ -1,7 +1,5 @@
 import aoctools
 from copy import deepcopy
-import re
-from functools import cmp_to_key, cache
 
 tools = aoctools.aoc_tools()
 
@@ -14,12 +12,15 @@ wrong = []
 started = False
 for line in lines:
     if started:
+        update = line.split(",")
         for rule in rules:
-            if re.findall(rule[1] + ".*" + rule[0], line):
-                wrong.append(line)
-                break
+            #if re.findall(rule[1] + ".*" + rule[0], line):
+            if rule[0] in update and rule[1] in update:
+                a, b = (update.index(rule[0]), update.index(rule[1]))
+                if a > b:
+                    wrong.append(line)
+                    break
         else:
-            update = line.split(",")
             total += int(update[int((len(update) - 1)/2) ])
     else:
         if line == "":
