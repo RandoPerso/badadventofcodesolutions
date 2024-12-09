@@ -49,3 +49,10 @@ class aoc_tools():
 
     def rot_array_cc_n(self, array, n) -> list:
         return np.rot90(np.array(array), n).tolist()
+    
+    def in_bounds(self, pos, max_x, max_y) -> bool:
+        if pos[1] >= max_y or pos[1] < 0:
+            return False
+        if pos[0] >= max_x or pos[0] < 0:
+            return False
+        return True
