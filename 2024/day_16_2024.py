@@ -1,6 +1,5 @@
 import aoctools
 from copy import deepcopy
-from fractions import Fraction
 
 tools = aoctools.aoc_tools()
 
