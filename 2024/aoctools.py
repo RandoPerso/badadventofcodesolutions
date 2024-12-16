@@ -56,3 +56,6 @@ class aoc_tools():
         if pos[0] >= max_x or pos[0] < 0:
             return False
         return True
+    
+    def tup_add(self, x, y) -> tuple:
+        return tuple(x[i] + y[i] for i in range(len(x)))
