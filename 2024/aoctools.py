@@ -34,13 +34,13 @@ class aoc_tools():
         return "".join(temp)
 
     def start_clock(self):
-        self.clock = time.time()
+        self.clock = time.perf_counter()
     
     def start_clock_ns(self):
         self.clock = time.perf_counter_ns()
 
     def stop_clock(self):
-        print(f"Your slow code took {time.time() - self.clock} seconds")
+        print(f"Your slow code took {time.perf_counter() - self.clock} seconds")
     
     def stop_clock_ns(self):
         print(f"Your slow code took {time.perf_counter_ns() - self.clock} nanoseconds")
@@ -66,3 +66,6 @@ class aoc_tools():
     
     def tup_add(self, x, y) -> tuple:
         return tuple(x[i] + y[i] for i in range(len(x)))
+    
+    def man_dist(a, b) -> int:
+        return abs(a[0] - b[0]) + abs(a[1] - b[1])
