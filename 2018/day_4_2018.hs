@@ -31,7 +31,7 @@ findSleepy (action:actions) currentGuard timeAsleep totalTimeMap
 
 findMaxKeyValue maxKey maxValue [] = (maxKey, maxValue)
 findMaxKeyValue maxKey maxValue (guard:guards)
-    | snd guard > maxValue = findMaxKeyValue (fst guard) (snd guard) guards
+    | snd guard > maxValue = uncurry findMaxKeyValue guard guards
     | otherwise = findMaxKeyValue maxKey maxValue guards
 
 makeSleepyTimes :: [String] -> String -> Bool -> Int -> [Int] -> [Int]
